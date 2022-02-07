@@ -28,7 +28,7 @@ const thoughtController = {
     updateThought({ body, params }, res) {
         Thought.findOneAndUpdate(
             { _id: params.thoughtId }, 
-            body, 
+            {thoughtText: body.thoughtText}, 
             {new: true, }
         )
         .then(dbThoughtData => res.json(dbThoughtData))
